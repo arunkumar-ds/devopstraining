@@ -1,0 +1,33 @@
+1. Create the file
+touch /home/demo.txt
+
+2. Set the required permissions
+You want:
+
+Owner → read, write, execute → rwx → 7
+
+Group → read, write → rw- → 6
+
+Others → read → r-- → 4
+
+So the permission number is:
+
+764
+
+Apply it:
+chmod 764 /home/demo.txt
+
+Final Permissions Explanation
+
+After running the command, the file will have:
+
+-rwxrw-r--  demo.txt
+
+
+Meaning:
+
+Owner → rwx
+
+Group → rw-
+
+Others → r--
