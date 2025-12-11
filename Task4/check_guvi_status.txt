@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Fetch the HTTP Status Code
+#
+status_code=$(curl -o /dev/null -s -w "%{http_code}" https://guvi.in)
+echo "HTTP Status Code: $status_code"
+
+#Check Status code
+if [[ $status_code -ge 200 && $status_code -lt 300 ]]; then
+        echo "Success: guvi.in is reachable!"
+else
+        echo "Failure: guvi.in returned an error!!"
+fi
+

@@ -1,0 +1,51 @@
+#Script 
+
+#!/bin/bash
+#
+#Replace "give" with "learning" from line 5 that contain the word "welcome"
+#
+
+awk '
+NR >= 5 && /welcome/ {
+gsub(/give/, "learning")
+}
+
+{print}
+' sample.txt > sample1.txt
+
+echo "Replacement Completed"
+echo "Updated sample1.txt content:"
+echo "----------------------------"
+cat sample1.txt
+echo "----------------------------"
+
+# Before the Script
+
+This is the first line.
+This is the second line.
+This is the third line without keywords.
+This is the fourth line that has give but no welcome.
+welcome to the training, we will give you tasks.
+This line has welcome but does not give anything.
+Here we welcome you and give multiple give opportunities.
+Random line give welcome give test.
+This line has give but no welcome, should NOT be changed.
+welcome again, we give our best efforts.
+
+# After the Script changes
+
+Replacement Completed
+Updated sample1.txt content:
+----------------------------
+This is the first line.
+This is the second line.
+This is the third line without keywords.
+This is the fourth line that has give but no welcome.
+welcome to the training, we will learning you tasks.
+This line has welcome but does not learning anything.
+Here we welcome you and learning multiple learning opportunities.
+Random line learning welcome learning test.
+This line has learning but no welcome, should NOT be changed.
+welcome again, we learning our best efforts.
+----------------------------
+
