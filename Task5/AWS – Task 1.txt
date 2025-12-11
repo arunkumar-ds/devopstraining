@@ -1,0 +1,66 @@
+AWS – Task 1
+
+Login to AWS Console
+
+Go to EC2 Service
+
+Launch a Windows EC2 Instance
+
+Click Launch Instance
+
+Enter name: winlab
+
+Key Pair:
+
+Create a new one - Download .pem file
+
+Network Settings:
+
+Allow RDP (3389)
+→ Check “Allow RDP traffic only from you IP"
+
+Click Launch Instance
+
+Get Administrator Password
+
+Select your instance
+
+Click Connect → choose RDP Client
+
+Click Get Password
+
+Upload your .pem key to decrypt
+
+AWS will show:
+
+Username: Administrator
+
+Password: (copy the decrypted password)
+
+Connect Using RDP
+
+Download the Remote Desktop file (.rdp) from AWS
+
+Double click to open in Remote Desktop
+
+When asked:
+
+Username: Administrator
+
+Password: paste the decrypted password
+
+Click Connect
+
+You will now log in to the Windows VM.
+
+Open CMD inside Windows
+
+Inside the Windows Server:
+
+Press Win + R
+
+Type cmd
+
+Press Enter
+
+Type: systeminfo
