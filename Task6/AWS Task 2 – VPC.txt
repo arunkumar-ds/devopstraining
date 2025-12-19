@@ -1,0 +1,116 @@
+AWS Task 2 – VPC with Public & Private Subnets and EC2
+Step 1: Create VPC
+
+Open AWS Console → VPC
+
+Create VPC
+
+Name: Task2-VPC
+
+IPv4 CIDR: 10.0.0.0/16
+
+Tenancy: Default
+
+Step 2: Create Internet Gateway
+
+Go to Internet Gateways
+
+Create Internet Gateway
+
+Name: Task2-IGW
+
+Attach the Internet Gateway to Task2-VPC
+
+Step 3: Create Public Subnet (256 IPs)
+
+Go to Subnets → Create subnet
+
+Details:
+
+VPC: Task2-VPC
+
+Subnet name: Public
+
+IPv4 CIDR: 10.0.1.0/24
+
+Enable Auto-assign public IPv4 address
+
+Step 4: Create Private Subnet (256 IPs)
+
+Create another subnet
+
+Details:
+
+VPC: Task2-VPC
+
+Subnet name: Private
+
+IPv4 CIDR: 10.0.2.0/24
+
+Do not enable public IP
+
+Step 5: Create Route Table
+
+Go to Route Tables → Create route table
+
+Details:
+
+Name: PublicRT
+
+VPC: Task2-VPC
+
+Step 6: Add Internet Route
+
+Select PublicRT
+
+Edit routes and add:
+
+Destination: 0.0.0.0/0
+
+Target: Task2-IGW
+
+Save routes
+
+Step 7: Associate Public Subnet
+
+In PublicRT, edit subnet associations
+
+Associate Public-Subnet
+
+Save
+
+Step 8: Create Security Group
+
+Go to EC2 → Security Groups
+
+Create security group:
+
+Name: Task2-SG
+
+VPC: Task2-VPC
+
+Inbound rule:
+
+SSH | Port 22 | Source: My IP
+
+Step 9: Launch Linux EC2 Instance
+
+Go to EC2 → Launch instance
+
+Select Ubuntu Server
+
+VPC: Task2-VPC
+
+Subnet: Public
+
+Auto-assign public IP: Enabled
+
+Security group: Task2-SG
+
+Launch instance
+
+Step 10: Connect to EC2
+
+Connect using SSH or PuTTY with the key pair
+
+Instance is accessible through the public subnet
