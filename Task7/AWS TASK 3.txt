@@ -1,0 +1,86 @@
+AWS TASK 3 – S3 + Application Load Balancer
+PART 1: S3 Bucket with Logging
+1. Create S3 Bucket
+
+Bucket name: aws-task3-private-bucket
+
+Region: Same as EC2
+
+Block all public access
+
+Create bucket
+
+2. Enable Server Access Logging
+
+Create another bucket: aws-task3-s3-logs
+
+Go to aws-task3-private-bucket → Properties
+
+Enable Server access logging
+
+Target bucket: aws-task3-s3-logs
+
+3. Upload Files
+
+Upload files to aws-task3-private-bucket
+
+Logs are stored in aws-task3-s3-logs
+
+4. Create CloudTrail
+5. View logs in Cloud watch
+
+PART 2: EC2 + Application Load Balancer
+1. Launch Two EC2 Instances
+
+AMI: Ubuntu
+
+Install nginx:
+
+2. Create Security Groups
+ALB Security Group
+
+Inbound
+
+HTTP 80 → 0.0.0.0/0
+
+EC2 Security Group
+
+Inbound
+
+HTTP 80 → alb-sg
+SSH 22 → My IP
+
+3. Create Target Group
+
+Type: Instances
+
+Protocol: HTTP
+
+Port: 80
+
+Register both EC2 instances
+
+Health check path: /
+
+4. Create Application Load Balancer
+
+Type: Internet-facing
+
+Select at least 2 subnets in different AZs
+
+Attach alb-sg
+
+Listener: HTTP 80
+
+Forward to target group
+
+5. Validate
+
+Check target group status → Healthy
+
+Access ALB DNS name in browser:
+
+http://<alb-dns-name>
+
+
+Page loads and shows instance hostname
