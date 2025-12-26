@@ -1,0 +1,90 @@
+1. Launch EC2 Instances
+
+AMI: Amazon Linux 2
+
+Instance Type: t2.micro
+
+Key Pair: Existing or new
+
+Storage: Default
+
+2.Windows EC2 Instance
+
+AMI: Windows Server 2025
+
+Instance Type: t2.micro
+
+Storage: Default
+
+3. Create a two 5 GB EBS Volumes
+
+Go to EC2 → Volumes
+
+Click Create Volume
+
+Size: 5 GB
+
+Type: gp3
+
+Availability Zone: Same as EC2 instance
+
+4. Attach to Linux Instance
+
+Select Volume → Attach Volume
+
+Instance: Linux EC2
+
+Device: /dev/sda
+
+Mount Volume (Linux)
+lsblk
+sudo mkfs -t "filesystem name" /dev/diskname
+sudo mkdir /data
+sudo mount /dev/diskname /data
+df -h
+
+5. Attach to Windows Instance
+
+Attach to Windows EC2
+
+Mount Volume (Windows)
+
+Open Disk Management
+
+Initialize disk (MBR or GPT)
+
+Create New Volume
+
+Assign Drive Letter (e.g., E:)
+
+6. Create Snapshot of EBS Volume
+
+EC2 → Volumes
+
+Select the 5 GB volume
+
+Click Create Snapshot
+
+Add description:
+
+7. Create New EBS Volume from Snapshot
+
+EC2 → Snapshots
+
+Select Snapshot → Create Volume
+
+Size: 5 GB
+
+AZ: Same as EC2
+
+Volume Type: gp3
+
+8. Attach Restored Volume to EC2
+
+Attach newly created volume to EC2
+
+Verify:
+
+Linux: lsblk, df -h
+
+Windows: Disk Management
