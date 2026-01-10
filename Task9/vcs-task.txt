@@ -1,0 +1,49 @@
+Steps:
+Created a directory named `vcs-task`
+Added two shell script files:
+  `script1.sh`
+  `script2.sh`
+  git init
+Create Empty GitHub Repository
+
+Created an empty repository on GitHub (without README)
+
+Linked the local repository to GitHub using:
+
+git remote add origin <repo-url>
+
+Pushed local commits to GitHub
+
+git push -u origin main
+
+Created a feature branch locally:
+
+git checkout -b feature-merge
+
+Made changes in the feature branch
+
+Merged the feature branch into main
+
+git merge feature-merge
+
+
+Created a rebase feature branch
+
+Rebasing performed to apply feature commits on top of the updated main branch:
+
+git rebase main
+
+
+Temporarily saved uncommitted changes using:
+
+git stash
+
+
+Verified stash list
+
+Re-applied the stashed changes:
+
+git stash apply
+
+
+git log --oneline --graph --all
