@@ -5,3 +5,4 @@ hostname
 echo "Running jenkins job"
 echo "Build completed successfully"
 echo "Triggerred new build"
+echo "new line"
